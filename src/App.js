@@ -44,16 +44,20 @@ function App() {
 }
 
 function SignIn() {
+
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithGoogle(provider);
+    auth.signInWithPopup(provider);
   }
 
   return (
-    <button onClick={signInWithGoogle}>Sign in with Google</button>
+    <>
+      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <p>Do not violate the community guidelines or you will be banned for life!</p>
+    </>
   )
-}
 
+}
 function SignOut() {
   return auth.currentUser && (
     <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
