@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import config from './config.json'
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks';
 import { dblClick } from '@testing-library/user-event/dist/click';
 
 //probably don't have to be this paranoid with firebase but hey, never hurts to be extra safe
-const config = require('./config.json');
+//const config = require('./config.json');
 
 firebase.initializeApp({
   //TODO: place config here
