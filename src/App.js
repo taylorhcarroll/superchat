@@ -6,8 +6,8 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import config from './config.json'
 
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks';
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { dblClick } from '@testing-library/user-event/dist/click';
 
 //probably don't have to be this paranoid with firebase but hey, never hurts to be extra safe
