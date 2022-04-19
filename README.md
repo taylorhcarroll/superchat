@@ -1,3 +1,21 @@
+**Going to want to to make a file called config.json at highest level in your project**
+make it look like this:
+```
+{
+    "firebaseConfigDev": {
+        "apiKey": "yourValues",
+        "authDomain": "yourValues",
+        "projectId": "yourValues",
+        "storageBucket": "yourValues",
+        "messagingSenderId": "yourValues",
+        "appId": "yourValues",
+        "measurementId": "yourValues"
+    }
+}
+```
+Your values will come from firebase (more on that later)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
