@@ -1,5 +1,6 @@
-import logo from './logo.svg';
+import React, { useRef, useState } from 'react';
 import './App.css';
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -27,6 +28,9 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function App() {
+
+  const [user] = useAuthState(auth);
+
   return (
     <div className="App">
       <header className="App-header">
