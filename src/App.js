@@ -57,7 +57,7 @@ function SignOut() {
 
 function ChatRoom() {
 
-  const dummy = useRef();
+  const anchor = useRef();
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
   //listens to data with hook, reacts to changes in realtime
@@ -83,12 +83,15 @@ function ChatRoom() {
 
     //after submission, clears out the input field for user
     setFormValue('');
+    anchor.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (<>
     <main>
 
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+      {/* using the ref hook to target where to anchor chat message after submit */}
+      <span ref={anchor}></span>
 
     </main>
     {/* writes value to firestore */}
