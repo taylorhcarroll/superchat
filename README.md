@@ -1,4 +1,4 @@
-**Going to want to to make a file called config.json at highest level in your project**
+**Going to want to to make a file called config.json in the src folder in your project**
 make it look like this:
 ```
 {

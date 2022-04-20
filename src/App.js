@@ -53,7 +53,7 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <p>Do not violate the community guidelines or you wibill be banned for life!</p>
     </>
   )
 
@@ -129,3 +129,96 @@ function ChatMessage(props) {
   )
 }
 export default App;
+
+
+
+
+
+import React, { useState } from "react";
+import "./style.css";
+
+//I don't know if you are still seeing this, but looks like I got disconnected,
+//I saw it looked like you called me, but I didn't want to interrupt an interview, didn't realize it might have been you all.
+
+export default function App() {
+  return (
+    <div>
+
+      <section>
+        <RoombaGrid />
+      </section>
+    </div>
+  );
+}
+
+function RoombaGrid() {
+
+  const [positionValue, setPositionValue] = useState(1)
+  const grid = [];
+  const [rotationValue, setRotationValue] = useState(90)
+  const style = {
+    transform: `rotate(${rotationValue}deg)`,
+    transition: 'transform 150ms ease',
+    color: 'red'
+  }
+
+  //track rotation
+  //todo css rotation of > character
+
+  //down + 7
+  //right + 1
+  //left -1
+  //up - 7
+
+  const MoveRoomba = () => {
+    //TODO if hits gride edge, auto-rotate
+    if (rotationValue == 90) {
+      setPositionValue(positionValue + 1)
+    } else if (rotationValue == 180) {
+      setPositionValue(positionValue + 7)
+    } else if (rotationValue == 270) {
+      setPositionValue(positionValue - 1)
+    } else if (rotationValue == 360) {
+      setPositionValue(positionValue - 7)
+    }
+  }
+
+  for (let i = 1; i <= 49; i++) {
+    grid.push(i);
+  }
+
+  const RotateRoomba = () => {
+    if (rotationValue == 360) {
+      setRotationValue(90)
+    } else {
+      setRotationValue(rotationValue + 90)
+    }
+    console.log("style", style)
+  }
+
+  return (
+    <>
+      <div class="grid">
+        {grid.map((grid, i) => (
+          <div class="cell">
+            {positionValue === grid ? <Roomba /> : ''}
+          </div>
+        ))}
+      </div>
+      <button type="submit" onClick={() => { MoveRoomba() }}> Move</button>
+      <button type="submit" onClick={() => { RotateRoomba() }}> Turn</button>
+    </>
+  )
+
+  function Roomba() {
+
+
+
+    return (
+      <>
+        <p style={style}>{'^'}</p>
+      </>
+    )
+  }
+
+}
